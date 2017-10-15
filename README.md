@@ -1,6 +1,6 @@
-[![PyPI](https://img.shields.io/pypi/d/v/blinker-alt.svg)](https://pypi.python.org/pypi/blinker-alt)
-[![PyPI](https://img.shields.io/pypi/d/l/blinker-alt.svg)](https://pypi.python.org/pypi/blinker-alt)
-[![PyPI](https://img.shields.io/pypi/d/pyversions/blinker-alt.svg)](https://pypi.python.org/pypi/blinker-alt)
+[![PyPI](https://img.shields.io/pypi/v/blinker-alt.svg)](https://pypi.python.org/pypi/blinker-alt)
+[![PyPI](https://img.shields.io/pypi/l/blinker-alt.svg)](https://pypi.python.org/pypi/blinker-alt)
+[![PyPI](https://img.shields.io/pypi/pyversions/blinker-alt.svg)](https://pypi.python.org/pypi/blinker-alt)
 
 **Note: This is a fork of [jek/blinker](https://github.com/jek/blinker)!**
 
