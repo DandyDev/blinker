@@ -1,5 +1,13 @@
-[![Build Status](https://travis-ci.org/jek/blinker.svg?branch=master)](https://travis-ci.org/jek/blinker)
+[![PyPI](https://img.shields.io/pypi/d/v/blinker-alt.svg)](https://pypi.python.org/pypi/blinker-alt)
+[![PyPI](https://img.shields.io/pypi/d/l/blinker-alt.svg)](https://pypi.python.org/pypi/blinker-alt)
+[![PyPI](https://img.shields.io/pypi/d/pyversions/blinker-alt.svg)](https://pypi.python.org/pypi/blinker-alt)
 
+**Note: This is a fork of [jek/blinker](https://github.com/jek/blinker)!**
+
+There didn't seem to be any activity anymore on the original repo, and the latest changes on
+master weren't officially released. So I forked the repo, merged a couple of important pull
+requests, and released a new version to PyPI under the name
+[blinker-alt](https://pypi.python.org/pypi/blinker-alt).
 
 # Blinker
 
@@ -36,6 +44,20 @@ See the [Blinker documentation](https://pythonhosted.org/blinker/) for more info
 Blinker requires Python 2.4 or higher, Python 3.0 or higher, or Jython 2.5 or higher.
 
 ## Changelog Summary
+
+1.5 (October 15, 2017)
+
+- Lower baseline cost of no-op signal send() & optional -O speedup.
+- Verified Python 3.6 support (no changes needed).
+- Verified Python 3.5 support (no changes needed).
+
+1.4 (July 23, 2015)
+
+- Verified Python 3.4 support (no changes needed)
+- Additional bookkeeping cleanup for non-ANY connections at disconnect
+  time.
+- Added Signal._cleanup_bookeeping() to prune stale bookkeeping on
+  demand
 
 1.3 (July 3, 2013)
 

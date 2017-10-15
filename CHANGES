@@ -2,11 +2,17 @@
 Blinker Changelog
 =================
 
-Version 1.5dev
+Version 1.6dev
 --------------
 
 Not yet released.
 
+Version 1.5
+-----------
+
+Release October 15, 2017
+
+- Lower baseline cost of no-op signal send() & optional -O speedup.
 - Verified Python 3.6 support (no changes needed).
 - Verified Python 3.5 support (no changes needed).
 
@@ -15,11 +21,11 @@ Version 1.4
 
 Released July 23, 2015
 
-- Verified Python 3.4 support (no changes needed)
+- Verified Python 3.4 support (no changes needed).
 - Additional bookkeeping cleanup for non-ANY connections at disconnect
   time.
 - Added Signal._cleanup_bookeeping() to prune stale bookkeeping on
-  demand
+  demand.
 
 Version 1.3
 -----------

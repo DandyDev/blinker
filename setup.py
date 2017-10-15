@@ -1,13 +1,64 @@
 try:
-    from setuptools import setup
+    from setuptools import setup, Command
 except ImportError:
     from distutils.core import setup
+from shutil import rmtree
+import os
+import sys
 
 readme = open('README.md').read()
 import blinker
 version = blinker.__version__
 
-setup(name="blinker",
+here = os.path.abspath(os.path.dirname(__file__))
+
+class PublishCommand(Command):
+    """
+    Support setup.py publish.
+    Graciously taken from https://github.com/kennethreitz/setup.py
+    """
+
+    description = 'Build and publish the package.'
+    user_options = []
+
+    @staticmethod
+    def status(s):
+        """Prints things in bold."""
+        print('\033[1m{0}\033[0m'.format(s))
+
+    def initialize_options(self):
+        pass
+
+    def finalize_options(self):
+        pass
+
+    def _remove_builds(self, msg):
+        try:
+            self.status(msg)
+            rmtree(os.path.join(here, 'dist'))
+            rmtree(os.path.join(here, 'build'))
+            rmtree(os.path.join(here, '.egg'))
+            rmtree(os.path.join(here, 'slack_machine.egg-info'))
+        except FileNotFoundError:
+            pass
+
+    def run(self):
+        try:
+            self._remove_builds("Removing previous builds…")
+        except FileNotFoundError:
+            pass
+
+        self.status("Building Source and Wheel (universal) distribution…")
+        os.system('{0} setup.py sdist bdist_wheel'.format(sys.executable))
+
+        self.status("Uploading the package to PyPi via Twine…")
+        os.system('twine upload dist/*')
+
+        self._remove_builds("Removing builds…")
+
+        sys.exit()
+
+setup(name="blinker-alt",
       version=version,
       packages=['blinker'],
       author='Jason Kirtland',
@@ -39,4 +90,7 @@ setup(name="blinker",
           'Topic :: Software Development :: Libraries',
           'Topic :: Utilities',
           ],
+      cmdclass={
+        'publish': PublishCommand,
+      }
 )
